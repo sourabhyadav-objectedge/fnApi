@@ -29,10 +29,10 @@ function shuffle(array) {
   return array;
 }
 function filter(array, filters) {
-  const offset = filters["offset"] ? filters["offset"] : 0;
-  const limit = filters["limit"] ? filters["limit"] : 10;
+  const offset = filters["offset"] ? parseInt(filters["offset"]) : 0;
+  const limit = filters["limit"] ? parseInt(filters["limit"]) : 10;
   const result = filters["sortby"]
-    ? shuffle(array.slice(offset, offset + limit))
+    ? shuffle(array.slice()).slice(offset, offset + limit)
     : array.slice(offset, offset + limit);
   return result;
 }
